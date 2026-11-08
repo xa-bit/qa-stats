@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>qa-stats · QA 语料统计分析</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>qa-stats <span class="sub">QA 语料统计分析</span></h1>
+  <nav id="tabs">
+    <button data-tab="dash" class="on">统计仪表盘</button>
+    <button data-tab="tax">标签库</button>
+    <button data-tab="task">分类任务</button>
+    <button data-tab="review">人审队列</button>
+    <button data-tab="settings">设置</button>
+  </nav>
+</header>
+
+<!-- ================= 统计仪表盘 ================= -->
+<section id="tab-dash" class="tab on">
+  <div class="panel">
+    <div class="row">
+      <input id="root-input" placeholder="扫描根目录（递归查找 .jsonl），如 /mnt/d/try/md-q" style="flex:1">
+      <button id="btn-scan">扫描</button>
+      <input id="file-input" placeholder="或手动添加 .jsonl 路径（字段名未知亦可，自动结构探测）" style="flex:1">
+      <button id="btn-add-file">添加</button>
+    </div>
+    <div id="file-list" class="file-list"></div>
+  </div>
+
+  <div class="panel">
+    <div class="row wrap">
+      <label>文献 <select id="f-stem"></select></label>
+      <label>流 <select id="f-flow"></select></label>
+      <label>track <select id="f-track"></select></label>
+      <label>gaPair <select id="f-ga"></select></label>
+      <label>一级学科 <select id="f-subj"></select></label>
+      <label>内容类型 <select id="f-ct"></select></label>
+      <label>置信度≥ <input id="f-conf" type="number" min="0" max="1" step="0.1" style="width:70px" placeholder="—"></label>
+      <label class="chk"><input id="f-notrunc" type="checkbox"> 排除截断</label>
+      <button id="btn-query">查询</button>
+      <button id="btn-export">导出报告</button>
+      <span id="export-tip" class="tip"></span>
+    </div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="chart-grid">
+    <div class="chart wide"><h3>学科分布（旭日：内环一级 / 外环二级，多标签计数）</h3><div class="ec" id="c-sunburst"></div></div>
+    <div class="chart"><h3>内容类型分布</h3><div class="ec" id="c-ct"></div></div>
+    <div class="chart"><h3>每题学科标签数分布（数量纪律）</h3><div class="ec" id="c-tags"></div></div>
+    <div class="chart"><h3>gaPair 分布</h3><div class="ec" id="c-ga"></div></div>
+    <div class="chart"><h3>长度分布</h3><div id="ctl-hist"></div><div class="ec" id="c-hist"></div></div>
+    <div class="chart"><h3>分组箱线图</h3><div id="ctl-box"></div><div class="ec" id="c-box"></div></div>
+    <div class="chart wide"><h3>学科 × 内容类型（主标签口径）</h3><div class="ec" id="c-heat"></div></div>
+    <div class="chart wide"><h3>学科交叉共现（同题多学科对）</h3><div class="ec" id="c-cooc"></div></div>
+    <div class="chart"><h3>思考长度 × eval 分数</h3><div class="ec" id="c-scatter"></div></div>
+    <div class="chart"><h3>eval 分数分布</h3><div class="ec" id="c-eval"></div></div>
+    <div class="chart"><h3>分类置信度分布</h3><div class="ec" id="c-conf"></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <h3 style="margin:0">明细表 <span id="rows-count" class="tip"></span></h3>
+      <button id="btn-csv">导出 CSV</button>
+    </div>
+    <div class="table-wrap">
+      <table id="rows-table">
+        <thead><tr>
+          <th>id</th><th>文献</th><th>题面</th><th>学科（多标签）</th><th>来源</th><th>标签数</th><th>内容类型</th><th>置信度</th>
+          <th>gaPair</th><th>track</th><th>思考字数</th><th>答案字数</th><th>eval</th><th>标志</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="row">
+      <button id="pg-prev">上一页</button><span id="pg-info"></span><button id="pg-next">下一页</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 标签库 ================= -->
+<section id="tab-tax" class="tab">
+  <div class="panel">
+    <div class="row wrap">
+      <button id="tax-reload">重新载入</button>
+      <select id="tax-preset"></select>
+      <button id="tax-load-preset">加载预置到编辑器</button>
+      <button id="tax-propose">LLM 归纳建议稿（对已选文件抽样）</button>
+      <button id="tax-save" class="primary">保存（version+1，触发增量重分类）</button>
+      <button id="tax-browse">浏览完整标签信息（表/图）</button>
+      <span id="tax-tip" class="tip"></span>
+    </div>
+    <p class="tip">标签库平时不动；在此点击修改。一级学科之间允许交叉——交叉通过「给题打多个学科标签」表达，树本身保持每级归属唯一。保存会提升 version 并使分类缓存失效，下次分类只重跑受影响的题。当前生效文件：<span id="tax-path" class="muted"></span>（可在设置页改 taxonomyPath）。</p>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin:0 0 8px">学科树（一级 → 二级方向） <span id="tax-version" class="tip"></span></h3>
+    <div id="tax-tree"></div>
+    <div class="row" style="margin-top:8px"><button id="tax-add-l1">＋ 一级学科</button></div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin:0 0 8px">内容类型（一级封闭集） <span id="ct-version" class="tip"></span></h3>
+    <div id="ct-list"></div>
+    <div class="row" style="margin-top:8px"><button id="ct-add">＋ 内容类型</button><button id="ct-save">保存内容类型</button></div>
+  </div>
+</section>
+
+<!-- 标签库浏览弹层（表 + 图 + 系统保存框导出） -->
+<div id="tax-browser" class="overlay" hidden>
+  <div class="overlay-box">
+    <div class="row" style="justify-content:space-between">
+      <h3 style="margin:0">完整标签信息浏览 <span id="tax-browser-meta" class="tip"></span></h3>
+      <div class="row">
+        <button id="tb-csv">保存表格 CSV</button>
+        <button id="tb-json">保存 JSON</button>
+        <button id="tb-html">保存单文件 HTML</button>
+        <button id="tb-close" class="danger">关闭</button>
+      </div>
+    </div>
+    <p class="tip">保存会弹出系统保存位置选择框（浏览器不支持时退化为直接下载）。计数列来自最近一次「查询」的统计结果。</p>
+    <div class="ec" id="tb-sunburst" style="height:360px"></div>
+    <div class="ec" id="tb-cooc" style="height:340px"></div>
+    <div class="table-wrap" style="max-height:420px">
+      <table id="tb-table">
+        <thead><tr><th>一级学科(英)</th><th>中文名</th><th>描述</th><th>二级方向(英)</th><th>中文名</th><th>描述</th><th>QA 标签数</th><th>占已分类%</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 分类任务 ================= -->
+<section id="tab-task" class="tab">
+  <div class="panel">
+    <p class="tip">对已选文件执行混合分类（结构探测 → L0 规则 → L1 批量 LLM（学科多标签）→ L2 仲裁）。字段名未知的语料会先自动做结构探测（程序启发式，置信不足时 LLM 判断每个字段是 question/answer/reasoning/其它）。结果旁挂为 &lt;stem&gt;-cls.jsonl，不修改原文件；已确认的人审结果不会被覆盖。模型在「设置」页配置。</p>
+    <div class="row">
+      <button id="btn-classify">开始分类（对已选文件）</button>
+      <button id="btn-stop" class="danger">停止</button>
+      <span id="task-state" class="tip"></span>
+    </div>
+    <div id="task-progress"></div>
+    <pre id="task-log" class="log"></pre>
+  </div>
+</section>
+
+<!-- ================= 人审队列 ================= -->
+<section id="tab-review" class="tab">
+  <div class="panel">
+    <div class="row">
+      <input id="rv-file" placeholder="选择/输入 .jsonl 路径" style="flex:1">
+      <button id="rv-load">加载待审</button>
+      <button id="rv-refresh">刷新</button>
+      <span id="rv-count" class="tip"></span>
+    </div>
+    <div id="rv-list"></div>
+  </div>
+</section>
+
+<!-- ================= 设置 ================= -->
+<section id="tab-settings" class="tab">
+  <div class="panel" id="settings-panel"></div>
+</section>
+
+<script src="/vendor/echarts.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

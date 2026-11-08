@@ -1,0 +1,11 @@
+{
+  "name": "qa-stats",
+  "version": "1.0.0",
+  "description": "QA 语料统计分析工具：读取 q-a / q-a-factual 的 -qa.jsonl，做学科分类（程序+LLM 混合引擎）、内容分类、思考长度等维度的统计，输出表格（CSV/Markdown）与图表（交互仪表盘 / 单文件 HTML 报告）；不修改上游产物，旁挂式分析",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node scripts/selftest.js"
+  },
+  "license": "MIT"
+}

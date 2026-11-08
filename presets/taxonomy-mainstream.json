@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "dimension": "subject",
+  "name": "主流期刊标准学科树 Mainstream Journal Taxonomy",
+  "updated": "2026-11-08",
+  "note": "整合主流期刊公认分类体系：AGU 学科分会（JGR/GRL 所属，Ocean Sciences 下分物理/生物/化学/地质四子学科）+ Nature Portfolio 学科树（Physical/Biological/Chemistry/Earth & environmental/Health/Social 六大顶层）+ Science/Scopus 标准学科标签 + AMS 期刊主题。label 为英文规范名（最终统计口径），zh 为中文对照（项目过程中便于理解），desc 为中文一句描述。地球与空间科学按 AGU 粒度细化，其余学科按 Nature/Scopus 粒度整合。学科交叉由打标多标签表达，树内每级归属唯一。兜底类 label=Other。",
+  "tree": [
+    {
+      "label": "Atmospheric Sciences",
+      "zh": "大气科学",
+      "desc": "大气结构、运动与各种物理化学过程（AGU Atmospheric Sciences 分会 / JGR-Atmospheres / Nature Atmospheric science）",
+      "children": [
+        { "label": "Dynamical Meteorology & Circulation", "zh": "动力气象与环流", "desc": "大气波动、准地转理论与大尺度环流" },
+        { "label": "Weather Systems & Forecasting", "zh": "天气系统与预报", "desc": "锋面气旋、天气分析与预报方法" },
+        { "label": "Convection & Severe Storms", "zh": "对流与强对流", "desc": "积云对流、雷暴与强对流天气" },
+        { "label": "Cloud & Precipitation Physics", "zh": "云降水物理", "desc": "云微物理、降水形成机制" },
+        { "label": "Atmospheric Radiation & Remote Sensing", "zh": "大气辐射与遥感", "desc": "辐射传输、卫星反演与大气探测" },
+        { "label": "Atmospheric Chemistry & Composition", "zh": "大气化学与成分", "desc": "气溶胶、臭氧、温室气体与空气质量" },
+        { "label": "Boundary Layer & Turbulence", "zh": "边界层与湍流", "desc": "大气边界层结构、湍流输送与扩散" },
+        { "label": "Atmospheric Modeling & Data Assimilation", "zh": "大气模式与资料同化", "desc": "数值天气预报、模式参数化与同化" },
+        { "label": "Tropical Meteorology & Tropical Cyclones", "zh": "热带气象与热带气旋", "desc": "热带环流、季风环流与台风" }
+      ]
+    },
+    {
+      "label": "Climate Sciences",
+      "zh": "气候科学",
+      "desc": "气候系统变率、变化与预估（Nature Climate sciences / AGU Global Environmental Change / AMS Journal of Climate）",
+      "children": [
+        { "label": "ENSO & Interannual Variability", "zh": "ENSO与年际变率", "desc": "ENSO 动力学与年际尺度气候变率" },
+        { "label": "Decadal Variability & Modes", "zh": "年代际变率与涛动", "desc": "PDO、AMV 等年代际变率与模态" },
+        { "label": "Monsoon & Tropical Climate", "zh": "季风与热带气候", "desc": "季风系统与热带气候及其变率" },
+        { "label": "Climate Models & Numerical Simulation", "zh": "气候模式与数值模拟", "desc": "气候模式发展、评估与数值试验" },
+        { "label": "Extreme Climate Events", "zh": "极端气候事件", "desc": "极端温度、降水等事件及其归因" },
+        { "label": "Climate Projection & Scenario Analysis", "zh": "气候预估与情景分析", "desc": "未来气候预估与排放情景分析" },
+        { "label": "Global Warming & Climate Change", "zh": "全球变暖与气候变化", "desc": "全球变暖事实、归因与应对" },
+        { "label": "Climate Feedback Mechanisms", "zh": "气候反馈机制", "desc": "云、水汽、反照率等气候反馈" },
+        { "label": "Paleoclimatology & Proxy Records", "zh": "古气候与代用指标", "desc": "古气候重建与代用记录解读" }
+      ]
+    },
+    {
+      "label": "Ocean Sciences",
+      "zh": "海洋科学",
+      "desc": "海洋物理、化学、生物与地质过程（AGU Ocean Sciences 四子学科 / JGR-Oceans / Scopus Oceanography）",
+      "children": [
+        { "label": "Physical Oceanography & Circulation", "zh": "物理海洋与环流", "desc": "大洋环流、温盐环流与水体输送" },
+        { "label": "Mesoscale Eddies & Fronts", "zh": "中尺度涡与锋面", "desc": "中尺度涡旋、锋面与不稳定过程" },
+        { "label": "Ocean Mixing & Internal Waves", "zh": "海洋混合与内波", "desc": "湍流混合、内波与海洋细结构" },
+        { "label": "Air–Sea Interaction & Fluxes", "zh": "海气相互作用与通量", "desc": "海气界面动量、热量与淡水通量" },
+        { "label": "Coastal & Estuarine Oceanography", "zh": "近岸与河口海洋", "desc": "近岸动力、河口与陆架过程" },
+        { "label": "Marine Biogeochemistry & Carbon Cycle", "zh": "海洋生物地球化学与碳循环", "desc": "碳氮磷循环、生物泵与通量" },
+        { "label": "Marine Chemistry", "zh": "海洋化学", "desc": "海水组成、溶解气体与海洋酸化" },
+        { "label": "Biological Oceanography & Ecosystems", "zh": "海洋生物与生态", "desc": "浮游生物、食物网与海洋生态系统" },
+        { "label": "Marine Geology & Sediments", "zh": "海洋地质与沉积", "desc": "海底地貌、沉积过程与源汇" },
+        { "label": "Sea Level & Ocean Heat Content", "zh": "海平面与海洋热含量", "desc": "海平面变化、海洋变暖与热膨胀" },
+        { "label": "Ocean Observations & Technology", "zh": "海洋观测与技术", "desc": "Argo、浮标、走航与深海观测技术" }
+      ]
+    },
+    {
+      "label": "Hydrology & Water Resources",
+      "zh": "水文与水资源",
+      "desc": "陆地水循环与水资源（AGU Hydrology 分会 / Nature Hydrology）",
+      "children": [
+        { "label": "Catchment & River Hydrology", "zh": "流域与河流水文", "desc": "产汇流、河川径流与流域过程" },
+        { "label": "Groundwater & Vadose Zone", "zh": "地下水与包气带", "desc": "地下水运动、补给与土壤水" },
+        { "label": "Snow & Ice Hydrology", "zh": "冰雪水文", "desc": "融雪产流与冰川补给过程" },
+        { "label": "Ecohydrology", "zh": "生态水文", "desc": "植被-水分相互作用与生态需水" },
+        { "label": "Floods & Droughts", "zh": "洪水与干旱", "desc": "洪旱事件的成因、模拟与应对" },
+        { "label": "Water Resources & Management", "zh": "水资源与管理", "desc": "水资源评价、配置与调度" },
+        { "label": "Hydrological Modeling & Remote Sensing", "zh": "水文模拟与遥感", "desc": "水文模型与遥感水文观测" }
+      ]
+    },
+    {
+      "label": "Cryosphere Sciences",
+      "zh": "冰冻圈科学",
+      "desc": "冰雪冻土等冻结圈层（AGU Cryosphere Sciences 分会 / The Cryosphere 期刊）",
+      "children": [
+        { "label": "Glaciers & Ice Sheets", "zh": "冰川与冰盖", "desc": "冰川物质平衡与冰盖动力学" },
+        { "label": "Sea Ice", "zh": "海冰", "desc": "海冰生消、漂移与海冰-海洋耦合" },
+        { "label": "Permafrost & Frozen Ground", "zh": "多年冻土与冻土", "desc": "冻土热状态、退化与碳释放" },
+        { "label": "Snow & Alpine Cryosphere", "zh": "积雪与高山冰冻圈", "desc": "积雪过程与山地冰冻圈" },
+        { "label": "Ice–Ocean & Ice–Climate Interactions", "zh": "冰-海-气候相互作用", "desc": "冰架崩解、冰海通量与气候效应" }
+      ]
+    },
+    {
+      "label": "Solid Earth Sciences",
+      "zh": "固体地球科学",
+      "desc": "地球固体圈层的结构与过程（整合 AGU Seismology/Tectonophysics/VGP/Geodesy/Deep Interior 分会 / JGR-Solid Earth / Nature Geology）",
+      "children": [
+        { "label": "Seismology & Earthquake Physics", "zh": "地震学与震源物理", "desc": "地震波、震源机制与地震孕育" },
+        { "label": "Tectonics & Structural Geology", "zh": "构造地质与大地构造", "desc": "板块构造、变形与造山过程" },
+        { "label": "Volcanology & Magmatism", "zh": "火山学与岩浆作用", "desc": "火山活动、岩浆系统与喷发机制" },
+        { "label": "Geochemistry & Petrology", "zh": "地球化学与岩石学", "desc": "元素同位素地球化学与岩石成因" },
+        { "label": "Geodesy & Gravity", "zh": "大地测量与重力", "desc": "地壳形变、重力场与参考框架" },
+        { "label": "Geomagnetism & Paleomagnetism", "zh": "地磁与古地磁", "desc": "地磁场起源、变化与古地磁记录" },
+        { "label": "Geodynamics & Deep Earth", "zh": "地球动力学与深部地球", "desc": "地幔对流、地核与地球内部结构" },
+        { "label": "Surface Processes & Geomorphology", "zh": "地表过程与地貌", "desc": "侵蚀、搬运与地貌演化" },
+        { "label": "Sedimentology & Stratigraphy", "zh": "沉积学与地层学", "desc": "沉积记录与地层划分对比" }
+      ]
+    },
+    {
+      "label": "Biogeosciences",
+      "zh": "生物地球科学",
+      "desc": "生物圈与地球系统的相互作用（AGU Biogeosciences 分会 / JGR-Biogeosciences / Nature Biogeochemistry）",
+      "children": [
+        { "label": "Terrestrial Ecosystems & Carbon Cycle", "zh": "陆地生态系统与碳循环", "desc": "陆地碳汇、生产力与生态系统过程" },
+        { "label": "Soil Biogeochemistry & Processes", "zh": "土壤生物地球化学", "desc": "土壤有机质分解与养分循环" },
+        { "label": "Vegetation Dynamics & Land Cover", "zh": "植被动态与土地覆被", "desc": "植被演替、遥感与土地利用" },
+        { "label": "Biosphere–Atmosphere Exchange", "zh": "生物圈-大气交换", "desc": "温室气体与痕量气体地气交换" },
+        { "label": "Microbiology & Geomicrobiology", "zh": "微生物与地质微生物", "desc": "微生物驱动的元素转化过程" }
+      ]
+    },
+    {
+      "label": "Space Physics & Aeronomy",
+      "zh": "空间物理与高层大气",
+      "desc": "太阳、磁层、电离层与高层大气（AGU Space Physics & Aeronomy 分会 / JGR-Space Physics）",
+      "children": [
+        { "label": "Ionosphere & Thermosphere", "zh": "电离层与热层", "desc": "电离层结构与热层大气过程" },
+        { "label": "Magnetospheric Physics", "zh": "磁层物理", "desc": "磁层结构、亚暴与磁暴过程" },
+        { "label": "Solar Physics & Solar Wind", "zh": "太阳物理与太阳风", "desc": "太阳活动、日冕与太阳风" },
+        { "label": "Space Weather", "zh": "空间天气", "desc": "空间天气事件及其影响与预报" }
+      ]
+    },
+    {
+      "label": "Planetary Sciences",
+      "zh": "行星科学",
+      "desc": "太阳系行星与系外行星（AGU Planetary Sciences 分会 / JGR-Planets）",
+      "children": [
+        { "label": "Planetary Geology & Surfaces", "zh": "行星地质与表面", "desc": "行星表面过程与地质演化" },
+        { "label": "Planetary Atmospheres", "zh": "行星大气", "desc": "行星大气结构与逃逸过程" },
+        { "label": "Planetary Interiors & Geophysics", "zh": "行星内部与行星地球物理", "desc": "行星内部结构与物理场" },
+        { "label": "Small Bodies & Meteorites", "zh": "小天体与陨石", "desc": "小行星、彗星与陨石研究" },
+        { "label": "Astrobiology & Habitability", "zh": "天体生物学与宜居性", "desc": "生命起源条件与行星宜居性" }
+      ]
+    },
+    {
+      "label": "Earth & Space Science Informatics",
+      "zh": "地球与空间科学信息学",
+      "desc": "地学观测数据与计算方法（AGU Earth and Space Science Informatics 分会 / JGR-ML and Computation）",
+      "children": [
+        { "label": "Earth Observation & Remote Sensing", "zh": "对地观测与遥感", "desc": "卫星对地观测与遥感数据处理" },
+        { "label": "Geospatial Data & GIS", "zh": "地理空间数据与GIS", "desc": "地理信息系统与空间分析" },
+        { "label": "Data Assimilation & Inversion Methods", "zh": "资料同化与反演方法", "desc": "同化、反演与参数估计方法" },
+        { "label": "AI & Machine Learning for Geosciences", "zh": "地学人工智能", "desc": "机器学习在地学中的应用" },
+        { "label": "Open Data & Cyberinfrastructure", "zh": "开放数据与信息基础设施", "desc": "地学数据共享与计算基础设施" }
+      ]
+    },
+    {
+      "label": "Natural Hazards & Risk",
+      "zh": "自然灾害与风险",
+      "desc": "自然灾害及其风险管理（AGU Natural Hazards 分会 / NHESS）",
+      "children": [
+        { "label": "Tropical Cyclones & Storm Surges", "zh": "台风与风暴潮", "desc": "台风灾害与风暴潮致灾过程" },
+        { "label": "Earthquake & Tsunami Hazards", "zh": "地震与海啸灾害", "desc": "地震海啸危险性与预警" },
+        { "label": "Landslides & Slope Hazards", "zh": "滑坡与边坡灾害", "desc": "滑坡诱发机制与风险评估" },
+        { "label": "Drought & Heatwave Extremes", "zh": "干旱与高温热浪", "desc": "干旱热浪灾害及其影响" },
+        { "label": "Hazard Risk Assessment & Resilience", "zh": "灾害风险评估与韧性", "desc": "灾害风险分析与防灾韧性" }
+      ]
+    },
+    {
+      "label": "Environmental Sciences",
+      "zh": "环境科学",
+      "desc": "环境过程与可持续性（Nature Environmental sciences / AGU Global Biogeochemical Cycles 期刊）",
+      "children": [
+        { "label": "Global Biogeochemical Cycles", "zh": "全球生物地球化学循环", "desc": "碳氮磷硫的全球循环与通量" },
+        { "label": "Pollution & Contaminants", "zh": "污染与污染物", "desc": "污染物来源、迁移与归宿" },
+        { "label": "Environmental Monitoring & Assessment", "zh": "环境监测与评价", "desc": "环境质量监测与影响评价" },
+        { "label": "Sustainability & Environmental Policy", "zh": "可持续性与环境政策", "desc": "可持续发展与环境治理政策" },
+        { "label": "Environmental Social Sciences", "zh": "环境社会科学", "desc": "环境问题的社会维度研究" }
+      ]
+    },
+    {
+      "label": "Physics & Astronomy",
+      "zh": "物理与天文学",
+      "desc": "物质运动基本规律与宇宙（Nature Physical sciences / Science 物理类 / Scopus Physics and Astronomy）",
+      "children": [
+        { "label": "Astrophysics & Astronomy", "zh": "天体物理与天文", "desc": "恒星、星系与宇宙学" },
+        { "label": "Particle & High-Energy Physics", "zh": "粒子与高能物理", "desc": "基本粒子与高能碰撞过程" },
+        { "label": "Nuclear Physics", "zh": "核物理", "desc": "原子核结构与核反应" },
+        { "label": "Atomic, Molecular & Optical Physics", "zh": "原子分子与光物理", "desc": "原子分子结构与光学现象" },
+        { "label": "Condensed Matter Physics", "zh": "凝聚态物理", "desc": "固体与软物质的物理性质" },
+        { "label": "Fluid Mechanics & Nonlinear Dynamics", "zh": "流体力学与非线性动力学", "desc": "流体运动、混沌与非线性现象" },
+        { "label": "Statistical & Plasma Physics", "zh": "统计与等离子体物理", "desc": "统计物理与等离子体过程" }
+      ]
+    },
+    {
+      "label": "Chemistry",
+      "zh": "化学",
+      "desc": "物质组成、结构与变化（Nature Chemistry / Scopus Chemistry）",
+      "children": [
+        { "label": "Analytical Chemistry", "zh": "分析化学", "desc": "物质成分分析与检测方法" },
+        { "label": "Inorganic Chemistry", "zh": "无机化学", "desc": "无机物的性质与反应" },
+        { "label": "Organic Chemistry", "zh": "有机化学", "desc": "有机化合物与反应机理" },
+        { "label": "Physical Chemistry & Chemical Physics", "zh": "物理化学与化学物理", "desc": "热力学、动力学与结构化学" },
+        { "label": "Polymer Chemistry", "zh": "高分子化学", "desc": "高分子合成与性能" },
+        { "label": "Catalysis & Surface Chemistry", "zh": "催化与表面化学", "desc": "催化机理与表面反应" }
+      ]
+    },
+    {
+      "label": "Mathematics",
+      "zh": "数学",
+      "desc": "数量、结构与空间的规律（Nature Mathematics and computing / Scopus Mathematics）",
+      "children": [
+        { "label": "Pure Mathematics", "zh": "基础数学", "desc": "代数、几何、拓扑与分析" },
+        { "label": "Applied Mathematics", "zh": "应用数学", "desc": "数学建模与微分方程应用" },
+        { "label": "Probability & Stochastic Processes", "zh": "概率与随机过程", "desc": "概率论与随机分析" },
+        { "label": "Statistics & Inference", "zh": "统计与推断", "desc": "统计理论、推断与试验设计" },
+        { "label": "Optimization & Operations Research", "zh": "优化与运筹学", "desc": "优化方法与决策运筹" }
+      ]
+    },
+    {
+      "label": "Computer & Information Sciences",
+      "zh": "计算机与信息科学",
+      "desc": "计算系统与信息处理（Nature computing / Scopus Computer Science）",
+      "children": [
+        { "label": "Algorithms & Computational Theory", "zh": "算法与计算理论", "desc": "算法设计与计算复杂性" },
+        { "label": "Artificial Intelligence & Machine Learning", "zh": "人工智能与机器学习", "desc": "机器学习、深度学习与智能方法" },
+        { "label": "Software Engineering & Systems", "zh": "软件工程与系统", "desc": "软件开发、操作系统与体系结构" },
+        { "label": "Computer Networks & Communications", "zh": "计算机网络与通信", "desc": "网络协议与通信技术" },
+        { "label": "Data Science & Big Data", "zh": "数据科学与大数据", "desc": "数据挖掘、数据库与大数据分析" },
+        { "label": "Security & Cryptography", "zh": "安全与密码学", "desc": "信息安全与密码技术" },
+        { "label": "High-Performance & Scientific Computing", "zh": "高性能与科学计算", "desc": "并行计算与科学计算方法" }
+      ]
+    },
+    {
+      "label": "Engineering",
+      "zh": "工程与技术",
+      "desc": "工程原理、设计与制造（Nature Engineering / Scopus Engineering）",
+      "children": [
+        { "label": "Mechanical & Manufacturing Engineering", "zh": "机械与制造工程", "desc": "机械设计、制造与装备" },
+        { "label": "Civil & Structural Engineering", "zh": "土木与结构工程", "desc": "建筑结构、岩土与施工" },
+        { "label": "Electrical & Electronic Engineering", "zh": "电气与电子工程", "desc": "电路、电力与电子系统" },
+        { "label": "Energy & Power Engineering", "zh": "能源与动力工程", "desc": "热能、电力与新能源技术" },
+        { "label": "Aerospace Engineering", "zh": "航空航天工程", "desc": "飞行器设计与推进技术" },
+        { "label": "Chemical Engineering", "zh": "化学工程", "desc": "化工过程、分离与反应工程" },
+        { "label": "Marine & Coastal Engineering", "zh": "海洋与海岸工程", "desc": "船舶海洋结构物与海岸工程" },
+        { "label": "Robotics & Automation", "zh": "机器人与自动化", "desc": "机器人系统与自动控制" }
+      ]
+    },
+    {
+      "label": "Materials Science",
+      "zh": "材料科学",
+      "desc": "材料结构、性能与应用（Nature Materials science / Scopus Materials Science）",
+      "children": [
+        { "label": "Structural & Metallic Materials", "zh": "结构与金属材料", "desc": "金属合金与结构材料" },
+        { "label": "Functional & Electronic Materials", "zh": "功能与电子材料", "desc": "半导体、磁性等功能材料" },
+        { "label": "Polymers & Soft Materials", "zh": "聚合物与软物质材料", "desc": "高分子与软凝聚态材料" },
+        { "label": "Nanomaterials & Nanotechnology", "zh": "纳米材料与纳米技术", "desc": "纳米结构制备与纳米效应" },
+        { "label": "Composite Materials", "zh": "复合材料", "desc": "多相复合体系设计与性能" }
+      ]
+    },
+    {
+      "label": "Biology & Life Sciences",
+      "zh": "生物与生命科学",
+      "desc": "生命现象与生物过程（Nature Biological sciences / Scopus Agricultural and Biological Sciences）",
+      "children": [
+        { "label": "Molecular & Cell Biology", "zh": "分子与细胞生物学", "desc": "生物大分子与细胞生命活动" },
+        { "label": "Genetics & Genomics", "zh": "遗传与基因组学", "desc": "基因、基因组与遗传规律" },
+        { "label": "Evolutionary Biology", "zh": "进化生物学", "desc": "物种演化与系统发育" },
+        { "label": "Ecology & Biodiversity", "zh": "生态学与生物多样性", "desc": "生物与环境关系及多样性保护" },
+        { "label": "Neuroscience", "zh": "神经科学", "desc": "神经系统结构与功能" },
+        { "label": "Microbiology", "zh": "微生物学", "desc": "微生物类群与生命活动" },
+        { "label": "Physiology & Metabolism", "zh": "生理与代谢", "desc": "生物体功能与代谢调控" },
+        { "label": "Plant Biology", "zh": "植物生物学", "desc": "植物结构、发育与适应" },
+        { "label": "Marine & Freshwater Biology", "zh": "海洋与淡水生物学", "desc": "水生生物与水域生态" }
+      ]
+    },
+    {
+      "label": "Medicine & Health Sciences",
+      "zh": "医学与健康科学",
+      "desc": "人体疾病、诊疗与健康（Nature Health sciences / Scopus Medicine）",
+      "children": [
+        { "label": "Basic Medical Sciences", "zh": "基础医学", "desc": "人体结构与疾病机理" },
+        { "label": "Clinical Medicine", "zh": "临床医学", "desc": "疾病诊断、治疗与预后" },
+        { "label": "Public Health & Epidemiology", "zh": "公共卫生与流行病学", "desc": "疾病流行、预防与健康政策" },
+        { "label": "Pharmacology & Pharmacy", "zh": "药理与药学", "desc": "药物作用与临床用药" }
+      ]
+    },
+    {
+      "label": "Agricultural & Food Sciences",
+      "zh": "农业与食品科学",
+      "desc": "农业生产与食品（Nature Agricultural and food sciences）",
+      "children": [
+        { "label": "Agronomy & Crop Science", "zh": "农学与作物科学", "desc": "作物栽培、育种与生产" },
+        { "label": "Horticulture", "zh": "园艺学", "desc": "果树、蔬菜与花卉生产" },
+        { "label": "Plant Protection & Pest Science", "zh": "植物保护", "desc": "病虫害及其防治" },
+        { "label": "Animal Science & Veterinary Medicine", "zh": "畜牧与兽医", "desc": "畜禽养殖与动物医学" },
+        { "label": "Fisheries & Aquaculture", "zh": "渔业与水产养殖", "desc": "渔业资源与水产增养殖" },
+        { "label": "Soil Science", "zh": "土壤科学", "desc": "土壤肥力、改良与土地资源" },
+        { "label": "Food Science", "zh": "食品科学", "desc": "食品加工、安全与营养" }
+      ]
+    },
+    {
+      "label": "Economics & Management",
+      "zh": "经济与管理",
+      "desc": "经济运行与管理决策（Nature Social sciences 经济类 / Scopus Economics and Business）",
+      "children": [
+        { "label": "Macroeconomics & Economic Policy", "zh": "宏观经济与政策", "desc": "总量经济与政策分析" },
+        { "label": "Microeconomics", "zh": "微观经济学", "desc": "个体决策与市场均衡" },
+        { "label": "Finance & Financial Markets", "zh": "金融与金融市场", "desc": "资产定价与金融机构" },
+        { "label": "Management & Organization", "zh": "管理与组织", "desc": "组织行为、战略与运营" },
+        { "label": "Resource & Environmental Economics", "zh": "资源与环境经济学", "desc": "资源配置与环境价值评估" }
+      ]
+    },
+    {
+      "label": "Psychology & Cognitive Sciences",
+      "zh": "心理学与认知科学",
+      "desc": "心理过程与认知机制（Nature Psychological and cognitive sciences）",
+      "children": [
+        { "label": "Basic Psychology & Behavior", "zh": "基础心理学与行为", "desc": "感知、情绪与人格等心理过程" },
+        { "label": "Cognitive Neuroscience", "zh": "认知神经科学", "desc": "脑与认知的神经机制" },
+        { "label": "Developmental & Educational Psychology", "zh": "发展与教育心理", "desc": "心理发展与教育心理规律" },
+        { "label": "Applied Psychology", "zh": "应用心理学", "desc": "临床、工程与组织等应用领域" }
+      ]
+    },
+    {
+      "label": "Social Sciences & Humanities",
+      "zh": "社会科学与人文",
+      "desc": "人类社会、文化与制度（Nature Social sciences / Science 社会类）",
+      "children": [
+        { "label": "Political Science & Law", "zh": "政治学与法学", "desc": "政治制度、治理与法律" },
+        { "label": "Sociology & Demography", "zh": "社会学与人口学", "desc": "社会结构、变迁与人口过程" },
+        { "label": "Education Science", "zh": "教育学", "desc": "教育理论与教学方法" },
+        { "label": "Linguistics & Literature", "zh": "语言与文学", "desc": "语言规律与文学研究" },
+        { "label": "History & Philosophy", "zh": "历史与哲学", "desc": "历史研究与哲学思想" },
+        { "label": "Communication & Media Studies", "zh": "新闻传播", "desc": "传播规律与媒介研究" },
+        { "label": "Science, Technology & Society", "zh": "科学技术与社会", "desc": "科研共同体、科技政策与社会影响" }
+      ]
+    },
+    {
+      "label": "Other",
+      "zh": "其他",
+      "desc": "无法归入以上学科的题目（兜底类；占比过高说明树需要演进）",
+      "children": []
+    }
+  ]
+}
